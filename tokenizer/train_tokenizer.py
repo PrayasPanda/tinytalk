@@ -24,7 +24,8 @@ SPECIALS = ["<|pad|>", "<|endoftext|>", "<|user|>", "<|bot|>"]
 
 def conversations(split):
     """Yield each dialog as one '<|user|> .. <|bot|> ..' string."""
-    ds = load_dataset("daily_dialog", split=split, cache_dir=str(RAW), trust_remote_code=True)
+    # OpenRL mirror: same data, Parquet instead of a loading script (datasets>=4 dropped scripts).
+    ds = load_dataset("OpenRL/daily_dialog", split=split, cache_dir=str(RAW))
     for row in ds:
         turns = []
         for i, utterance in enumerate(row["dialog"]):
