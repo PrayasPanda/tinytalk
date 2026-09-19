@@ -46,7 +46,12 @@ demo = gr.ChatInterface(
         gr.Slider(0.1, 1.5, value=0.8, label="temperature"),
         gr.Slider(1, 100, value=40, step=1, label="top-k"),
     ],
-    examples=["hello , how are you ?", "what do you do on weekends ?", "i am going to the movies"],
+    # With additional_inputs, each example is [message, temperature, top_k].
+    examples=[
+        ["hello , how are you ?", 0.8, 40],
+        ["what do you do on weekends ?", 0.8, 40],
+        ["i am going to the movies", 0.8, 40],
+    ],
 )
 
 if __name__ == "__main__":
