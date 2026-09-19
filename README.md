@@ -1,4 +1,4 @@
-# tinytalk — a conversational LLM trained from scratch
+# tinytalk - a conversational LLM trained from scratch
 
 A 14M parameter decoder-only transformer, written from first principles in PyTorch
 and trained on the DailyDialog corpus. No pretrained weights, no `transformers`
