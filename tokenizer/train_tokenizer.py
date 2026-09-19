@@ -67,8 +67,15 @@ def main():
     assert tok.get_vocab_size() <= 65535, "vocab must fit in uint16"
 
     # Round-trip check: the one thing that must not silently break.
+    # decode() drops added tokens by default, so keep them to see the real text back.
     sample = "<|user|> how are you ? <|bot|> i am fine , thanks ."
-    assert tok.decode(tok.encode(sample).ids).strip() == sample, "tokenizer round-trip failed"
+    decoded = tok.decode(tok.encode(sample).ids, skip_special_tokens=False)
+    assert decoded.split() == sample.split(), f"tokenizer round-trip failed: {decoded!r}"
+
+    # The speaker tags must stay single tokens, or the model can't learn who is talking.
+    for tag in SPECIALS:
+        assert tok.token_to_id(tag) is not None, f"{tag} missing from vocab"
+        assert len(tok.encode(tag, add_special_tokens=False).ids) == 1, f"{tag} got split up"
     print(f"vocab size: {tok.get_vocab_size()}  (round-trip ok)")
 
     print("encoding splits...")
