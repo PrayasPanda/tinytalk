@@ -4,7 +4,7 @@ A 14M parameter decoder-only transformer, written from first principles in PyTor
 and trained on the DailyDialog corpus. No pretrained weights, no `transformers`
 library — the attention, the block, the training loop and the sampler are all here.
 
-**[💬 Try it live](https://huggingface.co/spaces/YOUR_USERNAME/tinytalk)**
+**[💬 Try it live](https://huggingface.co/spaces/PrayasPanda/tinytalk)**
 
 ## What's implemented by hand
 
