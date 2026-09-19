@@ -1,0 +1,6 @@
+torch>=2.5
+tokenizers>=0.20
+datasets>=3.0
+numpy
+pyyaml
+tqdm

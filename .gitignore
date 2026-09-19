@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Datasets and tokenized binaries — regenerate with train_tokenizer.py
+data/raw/*
+data/processed/*
+!data/**/.gitkeep
+
+# Checkpoints are large; commit only the one you ship to the Space (git-lfs)
+train/checkpoints/*.pt
+!train/checkpoints/.gitkeep
+
+.ipynb_checkpoints/
+.DS_Store

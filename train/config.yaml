@@ -1,0 +1,24 @@
+# ~30M params. Tuned for a Colab T4 (16GB) / RTX 5060 (8GB).
+
+model:
+  n_layer: 6
+  n_head: 6
+  n_embd: 384
+  block_size: 256
+  dropout: 0.1
+
+train:
+  batch_size: 32
+  max_iters: 6000
+  learning_rate: 3.0e-4
+  min_lr: 3.0e-5
+  warmup_iters: 200
+  weight_decay: 0.1
+  grad_clip: 1.0
+  eval_interval: 250      # also when a checkpoint is written
+  eval_iters: 50
+  seed: 1337
+
+# Point this at Google Drive on Colab so checkpoints survive a disconnect:
+#   /content/drive/MyDrive/llm-chatbot/checkpoints
+checkpoint_dir: train/checkpoints
