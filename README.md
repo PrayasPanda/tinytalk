@@ -6,6 +6,8 @@ library — the attention, the block, the training loop and the sampler are all 
 
 **[💬 Try it live](https://huggingface.co/spaces/PrayasPanda/tinytalk)** · validation perplexity **17.75** after 41 minutes on one T4
 
+[![tinytalk running on Hugging Face Spaces](docs/demo.png)](https://huggingface.co/spaces/PrayasPanda/tinytalk)
+
 ## What's implemented by hand
 
 | Piece | File |
@@ -137,12 +139,16 @@ iter 5250 | train 1.945 | val 2.849   <- best
 iter 5999 | train 1.879 | val 2.877
 ```
 
-Sample exchange:
+Sample exchange (`python eval/generate.py`):
 
 ```
 you: hello , how are you ?
 bot: I'm fine , thanks . We're going to the beach and I'm going to get a little late .
 ```
+
+The second clause drifts, which is the expected failure mode at 256 tokens of
+context and this much training data — it keeps producing fluent dialogue after
+it has run out of anything to say.
 
 ## Notes and limitations
 
