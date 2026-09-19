@@ -8,9 +8,12 @@ data/raw/*
 data/processed/*
 !data/**/.gitkeep
 
-# Checkpoints are large; commit only the one you ship to the Space (git-lfs)
+# Checkpoints are large; the model ships via the Hugging Face Space, not here
 train/checkpoints/*.pt
 !train/checkpoints/.gitkeep
+
+# Assembled Space upload (duplicate of the code above + the 55MB model)
+space/
 
 .ipynb_checkpoints/
 .DS_Store
